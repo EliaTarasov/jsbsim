@@ -313,14 +313,16 @@
     <system file="Autopilot">
       <property value="0.523"> guidance/roll-angle-limit </property>
       <property value="0.174"> guidance/roll-rate-limit </property>
+	  <property value="0.0"> fcs/effective-aileron-pos </property>
     </system>
     
-    <autopilot file="c172ap"/>
+    <!--<autopilot file="c172ap"/>-->
 
     <flight_control name="c172">
         <channel name="Pitch">
+
             <summer name="fcs/pitch-trim-sum">
-                <input>ap/elevator_cmd</input>
+                <!--<input>ap/elevator_cmd</input>-->
                 <input>fcs/elevator-cmd-norm</input>
                 <input>fcs/pitch-trim-cmd-norm</input>
                 <clipto>
@@ -352,16 +354,15 @@
                 <min> -0.34 </min>
                 <max>  0.34 </max>
               </clipto>
-              <output>fcs/elevator-pos-rad</output>
+              <!--<output>fcs/elevator-pos-rad</output>-->
             </actuator>
-
         </channel>
 
         <channel name="Roll">
 
             <summer name="fcs/roll-trim-sum">
 <!--                <input>ap/aileron_cmd</input> -->
-                <input>ap/roll-cmd-norm-output</input>
+                <!--<input>ap/roll-cmd-norm-output</input>-->
                 <input>fcs/aileron-cmd-norm</input>
                 <input>fcs/roll-trim-cmd-norm</input>
                 <clipto>
@@ -413,13 +414,13 @@
               </clipto>
               <output>fcs/right-aileron-pos-rad</output>
             </actuator>
-            
+            <!--
             <summer name="fcs/effective-aileron-pos">
               <input> fcs/left-aileron-pos-rad </input>
               <input> -fcs/right-aileron-pos-rad </input>
               <gain> 0.5 </gain>
             </summer>
-            
+            -->
         </channel>
 
         <channel name="Yaw">
@@ -1193,28 +1194,16 @@
 <!--
     <input port="1137"/>
 -->
-
-    <output name="JSBout172B.csv" type="CSV" rate="10">
-        <rates> ON             </rates>
-        <velocities> ON        </velocities>
-        <position> ON          </position>
-        <atmosphere> OFF       </atmosphere>
-        <fcs> ON               </fcs>
-        <ground_reactions> OFF </ground_reactions>
-        <propulsion> ON       </propulsion>
-        <simulation> ON        </simulation>
-        <massprops> ON        </massprops>
-        <forces> OFF           </forces>
-        <moments> OFF          </moments>
-        <aerosurfaces> OFF      </aerosurfaces>
-        <property> position/vrp-gc-latitude_deg </property>
-        <property> position/vrp-longitude_deg   </property>
-        <property> position/vrp-radius-ft       </property>
-        <function name="velocities/pi-deg_sec">
-          <todegrees> <p> velocities/pi-rad_sec </p> </todegrees>
-        </function>
+    <output name="JSBSim172x.csv" type="CSV" rate="10">
+        <property> attitude/phi-rad </property>
+		<property> attitude/theta-rad </property>
+		<!--<property> attitude/psi-rad </property>-->
+		<!--<property> fcs/elevator-cmd-norm </property>-->
+		<!--<property> fcs/elevator-pos-rad </property>-->
+		<!--<property> fcs/aileron-cmd-norm </property>-->
+		<!--<property> fcs/effective-aileron-pos </property>-->
+		<!--<property> fcs/rudder-pos-rad </property>-->
     </output>
-
 <!---
     <output name="localhost" type="SOCKET" port="1138" rate="20">
         <simulation> OFF </simulation>
