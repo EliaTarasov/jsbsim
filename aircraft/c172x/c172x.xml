@@ -1197,6 +1197,8 @@
     <output name="JSBSim172x.csv" type="CSV" rate="10">
         <property> attitude/phi-rad </property>
 		<property> attitude/theta-rad </property>
+		<property> attitude/heading-true-rad </property>
+		<property> position/h-sl-meters </property>
 		<!--<property> attitude/psi-rad </property>-->
 		<!--<property> fcs/elevator-cmd-norm </property>-->
 		<!--<property> fcs/elevator-pos-rad </property>-->
