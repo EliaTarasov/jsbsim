@@ -1201,6 +1201,7 @@
 		<property> position/h-sl-meters </property>
 		<property> velocities/vtrue-fps </property>
 		<property> fcs/throttle-cmd-norm </property>
+		<property> aero/alpha-deg </property>
 		<!--<property> attitude/psi-rad </property>-->
 		<!--<property> fcs/elevator-cmd-norm </property>-->
 		<!--<property> fcs/elevator-pos-rad </property>-->
