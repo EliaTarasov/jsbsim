@@ -1209,27 +1209,10 @@
 		<!--<property> fcs/effective-aileron-pos </property>-->
 		<!--<property> fcs/rudder-pos-rad </property>-->
     </output>
-<!---
-    <output name="localhost" type="SOCKET" port="1138" rate="20">
-        <simulation> OFF </simulation>
-        <atmosphere> OFF </atmosphere>
-        <massprops> OFF</massprops>
-        <rates> OFF </rates>
-        <velocities> OFF </velocities>
-        <forces> OFF </forces>
-        <moments> OFF </moments>
-        <position> OFF </position>
-        <propulsion> OFF </propulsion>
-        <aerosurfaces> OFF </aerosurfaces>
-        <fcs> OFF </fcs>
-        <ground_reactions> OFF </ground_reactions>
-        <coefficients> OFF </coefficients>
-        <property> position/h-agl-ft </property>
-        <property> velocities/vc-kts </property>
-        <property> attitude/phi-rad </property>
-        <property> fcs/attitude/sensor/phi-rad </property>
-    </output>
 
+    <output name="localhost" type="FLIGHTGEAR" port="5500" protocol="TCP" rate="30" />
+
+	<!--
     <output name="localhost" type="SOCKET" port="1140" rate="40">
         <simulation> OFF </simulation>
         <atmosphere> OFF </atmosphere>
